@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#070708" />
-  <meta name="description" content="Gabriel Nascimento — Designer Visual & UI/UX com foco em produto e hospitalidade de alto padrão." />
-  <title>Gabriel Nascimento · Designer Visual & UI/UX</title>
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="description" content="Gabriel Nascimento — Product Designer & UI/UX focado em experiências digitais de alta performance e soluções de produto escaláveis." />
+  <title>Gabriel Nascimento · Product Designer & UI/UX</title>
 
   <link rel="manifest" href="./manifest.json" />
   <link rel="apple-touch-icon" href="./icons/icon-192.png" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -20,17 +19,17 @@
       theme: {
         extend: {
           colors: {
-            bg:        '#070708',
-            surface:   '#111113',
-            surface2:  '#1C1C1F',
-            accent:    '#C9A96E',
-            border:    '#252527',
-            text:      '#F2F2F0',
-            muted:     '#6B6B6B',
+            bg:      '#FFFFFF',
+            surface: '#F9F9FB',
+            surface2:'#EAEAEF',
+            accent:  '#6D28D9',   /* roxo principal */
+            gold:    '#C9A96E',   /* dourado — detalhes mínimos */
+            border:  '#E5E7EB',
+            text:    '#1F2937',
+            muted:   '#6B7280',
           },
           fontFamily: {
-            display: ['"Playfair Display"', 'serif'],
-            sans:    ['"DM Sans"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
           },
         }
       }
@@ -38,32 +37,33 @@
   </script>
 
   <style>
-    html, body { background-color: #070708; color: #F2F2F0; font-family: 'DM Sans', sans-serif; }
-
-    /* ── Grain overlay ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
+    html, body {
+      background-color: #FFFFFF;
+      color: #1F2937;
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
-    /* ── Scrollbar ── */
+    /* ── Scrollbar ─────────────────────────────────── */
     ::-webkit-scrollbar { width: 3px; height: 3px; }
-    ::-webkit-scrollbar-track { background: #111113; }
-    ::-webkit-scrollbar-thumb { background: #C9A96E44; border-radius: 2px; }
+    ::-webkit-scrollbar-track { background: #F9F9FB; }
+    ::-webkit-scrollbar-thumb { background: #6D28D944; border-radius: 99px; }
 
-    /* ── Gold gradient text ── */
-    .gold-text {
-      background: linear-gradient(135deg, #B8945A 0%, #E8CBAB 50%, #C9A96E 100%);
+    /* ── Purple gradient text ──────────────────────── */
+    .purple-text {
+      background: linear-gradient(135deg, #6D28D9 0%, #8B5CF6 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    /* ── Animations ── */
+    /* ── Gold section divider ──────────────────────── */
+    .s-line {
+      width: 36px; height: 2px;
+      background: linear-gradient(90deg, #C9A96E, transparent);
+      margin-bottom: 14px;
+    }
+
+    /* ── Fade-up animations ────────────────────────── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(28px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -74,40 +74,41 @@
     .d3 { animation-delay: 0.4s; }
     .d4 { animation-delay: 0.55s; }
 
-    /* ── Card lift ── */
+    /* ── Card hover lift ───────────────────────────── */
     .card-lift {
-      transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                  box-shadow 0.45s ease;
+      transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94),
+                  box-shadow 0.4s ease,
+                  border-color 0.25s ease;
     }
     .card-lift:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 24px 64px rgba(0,0,0,0.55), 0 0 0 1px #C9A96E22;
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(109,40,217,0.10);
+      border-color: #6D28D944;
     }
 
-    /* ── Nav underline ── */
+    /* ── Nav underline ─────────────────────────────── */
     .nav-link { position: relative; }
     .nav-link::after {
       content: '';
       position: absolute;
       bottom: -3px; left: 0;
-      width: 0; height: 1px;
-      background: #C9A96E;
+      width: 0; height: 1.5px;
+      background: #6D28D9;
       transition: width 0.35s ease;
     }
     .nav-link:hover::after { width: 100%; }
 
-    /* ── Carousel ── */
+    /* ── Carousel ──────────────────────────────────── */
     .carousel-track {
       display: flex;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
       gap: 16px;
-      padding-bottom: 4px;
+      padding-bottom: 6px;
       scrollbar-width: none;
     }
     .carousel-track::-webkit-scrollbar { display: none; }
-
     .carousel-item {
       scroll-snap-align: start;
       flex: 0 0 calc(33.333% - 11px);
@@ -116,48 +117,72 @@
       .carousel-item { flex: 0 0 80%; }
     }
 
-    /* ── Section divider line ── */
-    .s-line {
-      width: 36px; height: 2px;
-      background: linear-gradient(90deg, #C9A96E, transparent);
-      margin-bottom: 16px;
-    }
+    /* ── Image transition ──────────────────────────── */
+    img { transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94); }
 
-    /* ── Smooth image reveal ── */
-    img { transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-
-    /* ── Glow button ── */
-    .btn-gold {
-      background: #C9A96E;
-      color: #070708;
-      font-weight: 600;
+    /* ── Buttons ───────────────────────────────────── */
+    .btn-purple {
+      display: inline-block;
+      background: #6D28D9;
+      color: #FFFFFF;
+      font-weight: 700;
       font-size: 0.875rem;
-      padding: 12px 28px;
-      border-radius: 2px;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
+      padding: 13px 28px;
+      border-radius: 10px;
+      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
     }
-    .btn-gold:hover {
-      background: #DFB87A;
-      box-shadow: 0 0 32px #C9A96E44;
+    .btn-purple:hover {
+      background: #5B21B6;
+      box-shadow: 0 8px 28px rgba(109,40,217,0.28);
+      transform: translateY(-1px);
     }
-
     .btn-ghost {
-      color: #6B6B6B;
+      display: inline-block;
+      color: #6B7280;
       font-size: 0.875rem;
-      font-weight: 500;
+      font-weight: 600;
       padding: 12px 28px;
-      border: 1px solid #252527;
-      border-radius: 2px;
-      transition: border-color 0.3s ease, color 0.3s ease;
+      border: 1.5px solid #E5E7EB;
+      border-radius: 10px;
+      transition: border-color 0.3s, color 0.3s, background 0.3s;
     }
-    .btn-ghost:hover { border-color: #C9A96E; color: #C9A96E; }
+    .btn-ghost:hover {
+      border-color: #6D28D9;
+      color: #6D28D9;
+      background: #6D28D908;
+    }
+
+    /* ── Lightbox ──────────────────────────────────── */
+    @keyframes overlayIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes imgIn {
+      from { opacity: 0; transform: scale(0.94) translateY(12px); }
+      to   { opacity: 1; transform: scale(1)    translateY(0);    }
+    }
+    .lb-overlay { animation: overlayIn 0.25s ease forwards; }
+    .lb-img     { animation: imgIn     0.35s cubic-bezier(0.16,1,0.3,1) forwards; }
+
+    /* Chip pill */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #F9F9FB;
+      border: 1px solid #E5E7EB;
+      border-radius: 99px;
+      padding: 6px 14px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #6B7280;
+    }
   </style>
 </head>
 
-<body class="relative">
+<body class="bg-bg text-text">
 <div id="root"></div>
 
-<!-- React 18 + Router + Babel (CDN, no build step needed) -->
 <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -181,7 +206,8 @@ const PROJECTS = [
       { file: 'Carrossel Redes Sociais 4.png', label: '04' },
     ],
     description: 'Conteúdo estratégico para redes sociais com identidade visual consistente.',
-    aspect: 'aspect-square',
+    ratio: '3 / 4',   /* imagens: 1080×1440 (retrato 3:4) */
+    pad: 'p-2',
   },
   {
     id: 'email',
@@ -192,7 +218,8 @@ const PROJECTS = [
       { file: 'Email Marketing 2.png', label: '02' },
     ],
     description: 'Templates de e-mail com foco em conversão e experiência do leitor.',
-    aspect: 'aspect-[9/16]',
+    ratio: '1 / 3',   /* imagens: ~600×2950 (muito alto) — capped em 1:3 */
+    pad: 'p-2',
   },
   {
     id: 'folders',
@@ -204,7 +231,8 @@ const PROJECTS = [
       { file: 'Folders 3.jpg', label: '03' },
     ],
     description: 'Materiais impressos e digitais para comunicação institucional.',
-    aspect: 'aspect-[3/4]',
+    ratio: '4 / 3',   /* imagens: 4000×3000 (paisagem 4:3) */
+    pad: 'p-3',
   },
   {
     id: 'motion',
@@ -216,10 +244,110 @@ const PROJECTS = [
       { file: 'Motion 3.gif', label: '03' },
     ],
     description: 'Animações e motion graphics para redes sociais e digital.',
-    aspect: 'aspect-square',
+    ratio: '16 / 9',  /* imagens: ~730×410 (16:9) */
+    pad: 'p-2',
     badge: 'GIF',
   },
 ];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// LIGHTBOX
+// ─────────────────────────────────────────────────────────────────────────────
+function Lightbox({ images, startIndex, onClose }) {
+  const [idx, setIdx] = useState(startIndex);
+
+  /* keyboard navigation */
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.key === 'Escape')      onClose();
+      if (e.key === 'ArrowRight')  setIdx(i => Math.min(i + 1, images.length - 1));
+      if (e.key === 'ArrowLeft')   setIdx(i => Math.max(i - 1, 0));
+    };
+    document.addEventListener('keydown', handler);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', handler);
+      document.body.style.overflow = '';
+    };
+  }, [onClose, images.length]);
+
+  const cur = images[idx];
+  const hasPrev = idx > 0;
+  const hasNext = idx < images.length - 1;
+
+  return (
+    <div
+      className="lb-overlay fixed inset-0 z-[200] flex flex-col items-center justify-center"
+      style={{ background: 'rgba(249,249,251,0.97)', backdropFilter: 'blur(14px)' }}
+      onClick={onClose}
+    >
+      {/* Top bar */}
+      <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-6 py-4 z-10">
+        <span className="text-xs font-mono text-muted tabular-nums">
+          {String(idx + 1).padStart(2,'0')} / {String(images.length).padStart(2,'0')}
+        </span>
+        <button
+          onClick={onClose}
+          className="w-10 h-10 rounded-full border border-border bg-white shadow-sm flex items-center justify-center text-muted hover:text-text hover:border-text transition-all"
+          aria-label="Fechar"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      {/* Main image */}
+      <div
+        className="lb-img relative flex flex-col items-center px-4"
+        onClick={e => e.stopPropagation()}
+      >
+        <img
+          key={cur.src}
+          src={cur.src}
+          alt={cur.alt}
+          className="max-w-[88vw] max-h-[78vh] object-contain rounded-2xl"
+          style={{ boxShadow: '0 24px 80px rgba(0,0,0,0.14)' }}
+        />
+        <p className="mt-5 text-sm text-muted font-medium">{cur.alt}</p>
+      </div>
+
+      {/* Prev / Next arrows */}
+      {images.length > 1 && (
+        <>
+          <button
+            className={`absolute left-4 md:left-8 w-12 h-12 rounded-full bg-white border border-border shadow-md flex items-center justify-center transition-all ${hasPrev ? 'text-muted hover:text-accent hover:border-accent' : 'opacity-25 cursor-not-allowed'}`}
+            onClick={e => { e.stopPropagation(); if (hasPrev) setIdx(i => i - 1); }}
+            aria-label="Anterior"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button
+            className={`absolute right-4 md:right-8 w-12 h-12 rounded-full bg-white border border-border shadow-md flex items-center justify-center transition-all ${hasNext ? 'text-muted hover:text-accent hover:border-accent' : 'opacity-25 cursor-not-allowed'}`}
+            onClick={e => { e.stopPropagation(); if (hasNext) setIdx(i => i + 1); }}
+            aria-label="Próxima"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </>
+      )}
+
+      {/* Dot pagination */}
+      {images.length > 1 && (
+        <div className="absolute bottom-8 flex items-center gap-2">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              onClick={e => { e.stopPropagation(); setIdx(i); }}
+              className={`h-2 rounded-full transition-all duration-300 ${i === idx ? 'w-6 bg-accent' : 'w-2 bg-border hover:bg-muted'}`}
+              aria-label={`Imagem ${i + 1}`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // NAVBAR
@@ -229,64 +357,66 @@ function Navbar() {
   const [open, setOpen]         = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 48);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    const fn = () => setScrolled(window.scrollY > 48);
+    window.addEventListener('scroll', fn, { passive: true });
+    return () => window.removeEventListener('scroll', fn);
   }, []);
 
-  const navLinks = [
+  const links = [
     { label: 'Projetos', href: '#projects' },
     { label: 'Sobre',    href: '#about'    },
     { label: 'Contato',  href: '#footer'   },
   ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? 'py-3 bg-bg/90 backdrop-blur-xl border-b border-border'
-          : 'py-6 bg-transparent'
-      }`}
-    >
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      scrolled
+        ? 'py-3 bg-white/95 backdrop-blur-xl border-b border-border shadow-sm'
+        : 'py-6 bg-transparent'
+    }`}>
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#top" className="font-display text-xl font-black text-text tracking-wide">
-          GN<span className="gold-text">.</span>
+        <a href="#top" className="text-xl font-extrabold text-text tracking-tight">
+          GN<span className="purple-text">.</span>
         </a>
 
-        {/* Desktop links */}
         <ul className="hidden md:flex items-center gap-8">
-          {navLinks.map(l => (
+          {links.map(l => (
             <li key={l.label}>
-              <a href={l.href} className="nav-link text-muted hover:text-text text-sm font-medium tracking-wide transition-colors duration-300">
+              <a href={l.href} className="nav-link text-muted hover:text-text text-sm font-semibold transition-colors duration-300">
                 {l.label}
               </a>
             </li>
           ))}
         </ul>
 
-        <a href="mailto:thegabecrate@gmail.com" className="hidden md:block btn-ghost text-sm">
+        <a href="mailto:thegabecrate@gmail.com" className="hidden md:block btn-ghost">
           Vamos conversar
         </a>
 
         {/* Hamburger */}
-        <button className="md:hidden w-8 h-8 flex flex-col justify-center gap-1.5" onClick={() => setOpen(o => !o)} aria-label="Menu">
-          <span className={`block w-6 h-0.5 bg-text transition-all duration-300 origin-center ${open ? 'rotate-45 translate-y-2' : ''}`} />
-          <span className={`block w-6 h-0.5 bg-text transition-all duration-300 ${open ? 'opacity-0 scale-x-0' : ''}`} />
-          <span className={`block w-6 h-0.5 bg-text transition-all duration-300 origin-center ${open ? '-rotate-45 -translate-y-2' : ''}`} />
+        <button
+          className="md:hidden w-8 h-8 flex flex-col justify-center gap-[5px]"
+          onClick={() => setOpen(o => !o)}
+          aria-label="Menu"
+        >
+          <span className={`block h-0.5 bg-text rounded transition-all duration-300 origin-center ${open ? 'w-6 rotate-45 translate-y-[7px]' : 'w-6'}`} />
+          <span className={`block h-0.5 bg-text rounded transition-all duration-300 ${open ? 'w-0 opacity-0' : 'w-5'}`} />
+          <span className={`block h-0.5 bg-text rounded transition-all duration-300 origin-center ${open ? 'w-6 -rotate-45 -translate-y-[7px]' : 'w-6'}`} />
         </button>
       </div>
 
-      {/* Mobile drawer */}
-      <div className={`md:hidden overflow-hidden transition-all duration-400 ${open ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}`}>
-        <div className="bg-surface border-t border-border px-6 py-5 space-y-4">
-          {navLinks.map(l => (
+      {/* Mobile menu */}
+      <div className={`md:hidden overflow-hidden transition-all duration-300 ${open ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}`}>
+        <div className="bg-white border-t border-border px-6 py-5 space-y-3">
+          {links.map(l => (
             <a key={l.label} href={l.href} onClick={() => setOpen(false)}
-               className="block text-muted hover:text-accent py-1 text-sm font-medium transition-colors">
+               className="block text-muted hover:text-accent py-1.5 text-sm font-semibold transition-colors">
               {l.label}
             </a>
           ))}
-          <a href="mailto:thegabecrate@gmail.com" className="block btn-gold text-center mt-2">Vamos conversar</a>
+          <a href="mailto:thegabecrate@gmail.com" className="btn-purple block text-center mt-3">
+            Vamos conversar
+          </a>
         </div>
       </div>
     </nav>
@@ -298,40 +428,40 @@ function Navbar() {
 // ─────────────────────────────────────────────────────────────────────────────
 function Hero() {
   return (
-    <section id="top" className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16">
-      {/* Ambient glow */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
-           style={{ background: 'radial-gradient(circle at 80% 20%, #C9A96E0D 0%, transparent 65%)' }} />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none"
-           style={{ background: 'radial-gradient(circle at 20% 80%, #C9A96E08 0%, transparent 65%)' }} />
+    <section id="top" className="relative min-h-screen flex items-center overflow-hidden bg-white pt-24 pb-20">
+      {/* Ambient blobs */}
+      <div className="absolute -top-32 -right-32 w-[560px] h-[560px] rounded-full pointer-events-none"
+           style={{ background: 'radial-gradient(circle, #6D28D90E 0%, transparent 68%)' }} />
+      <div className="absolute bottom-0 -left-20 w-[400px] h-[400px] rounded-full pointer-events-none"
+           style={{ background: 'radial-gradient(circle, #C9A96E0A 0%, transparent 70%)' }} />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
-        {/* ── Text ── */}
+        {/* ── Text column ── */}
         <div>
-          <p className="fade-up d1 text-muted text-xs font-medium tracking-[0.2em] uppercase mb-8 flex items-center gap-4">
-            <span className="inline-block w-10 h-px bg-accent" />
-            Designer Visual & UI/UX
-          </p>
+          <div className="fade-up d1 pill mb-8 w-fit">
+            <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
+            Product Designer & UI/UX · Disponível para remoto
+          </div>
 
-          <h1 className="fade-up d2 font-display font-black leading-[0.9] text-text mb-2"
-              style={{ fontSize: 'clamp(3rem, 8vw, 5.5rem)' }}>
+          <h1 className="fade-up d2 font-extrabold leading-[1.05] text-text"
+              style={{ fontSize: 'clamp(2.8rem, 7vw, 5rem)' }}>
             Gabriel
           </h1>
-          <h1 className="fade-up d2 font-display font-black leading-[0.9] gold-text mb-8"
-              style={{ fontSize: 'clamp(3rem, 8vw, 5.5rem)' }}>
+          <h1 className="fade-up d2 font-extrabold leading-[1.05] purple-text mb-6"
+              style={{ fontSize: 'clamp(2.8rem, 7vw, 5rem)' }}>
             Nascimento
           </h1>
 
-          <p className="fade-up d3 text-muted text-base leading-relaxed max-w-[380px] mb-10">
-            Transformando necessidades complexas em soluções visuais de alta conversão — desde a imersão com o usuário até a entrega final em produto.
+          <p className="fade-up d3 text-muted text-base leading-relaxed max-w-[400px] mb-10">
+            Da descoberta do usuário à entrega de produto — resolvo problemas complexos de design e construo sistemas visuais de alta performance.
           </p>
 
           <div className="fade-up d4 flex flex-wrap gap-3">
-            <a href="#projects" className="btn-gold">Ver Projetos</a>
+            <a href="#projects" className="btn-purple">Ver Projetos</a>
             <a href="#about"    className="btn-ghost">Sobre mim</a>
           </div>
 
-          {/* Stats row */}
+          {/* Stats */}
           <div className="fade-up d4 mt-14 pt-8 border-t border-border flex gap-8 flex-wrap">
             {[
               ['3+',    'Anos de experiência'],
@@ -339,76 +469,128 @@ function Hero() {
               ['Figma', '& Adobe Suite'],
             ].map(([val, label]) => (
               <div key={label}>
-                <p className="font-display text-2xl font-bold text-text">{val}</p>
-                <p className="text-muted text-xs mt-0.5 tracking-wide">{label}</p>
+                <p className="text-2xl font-extrabold text-text">{val}</p>
+                <p className="text-muted text-xs mt-0.5 font-medium">{label}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* ── Photo ── */}
+        {/* ── Photo column ── */}
         <div className="relative flex justify-center md:justify-end">
-          {/* Offset decorative border */}
-          <div className="absolute -top-5 -left-5 w-full h-full border border-accent/20 rounded-sm pointer-events-none" />
-          {/* Dot grid accent */}
-          <div className="absolute -bottom-6 -right-6 w-24 h-24 pointer-events-none"
-               style={{ backgroundImage: 'radial-gradient(#C9A96E33 1px, transparent 1px)', backgroundSize: '8px 8px' }} />
+          {/* Purple dot grid */}
+          <div className="absolute -bottom-4 -right-4 w-28 h-28 pointer-events-none"
+               style={{ backgroundImage: 'radial-gradient(#6D28D933 1.5px, transparent 1.5px)', backgroundSize: '10px 10px' }} />
+          {/* Offset border frame */}
+          <div className="absolute -top-4 -left-4 w-full h-full rounded-2xl border border-gold/30 pointer-events-none" />
 
-          <div className="relative overflow-hidden rounded-sm group"
-               style={{ width: 'min(340px, 90vw)', height: 'min(440px, 70vw)' }}>
+          <div
+            className="relative overflow-hidden rounded-2xl group"
+            style={{
+              width: 'min(340px, 90vw)',
+              height: 'min(440px, 70vw)',
+              boxShadow: '0 32px 80px rgba(109,40,217,0.13)',
+            }}
+          >
             <img
-              src="DAY_0666.jpg"
+              src="./Foto/DAY_0666.jpg"
               alt="Gabriel Nascimento"
               className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 group-hover:scale-105"
               style={{ transition: 'filter 0.8s ease, transform 0.8s ease' }}
               loading="eager"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-bg/70 via-bg/10 to-transparent" />
           </div>
 
-          {/* Floating card */}
-          <div className="absolute -bottom-6 -left-4 md:-left-8 bg-surface border border-border px-4 py-3 rounded-sm shadow-xl">
-            <p className="text-muted text-[10px] tracking-widest uppercase">Atualmente em</p>
-            <p className="text-text text-sm font-semibold mt-0.5">Pratagy Beach Resort</p>
+          {/* Floating badge */}
+          <div className="absolute -bottom-5 -left-4 md:-left-8 bg-white border border-border px-4 py-3 rounded-xl shadow-lg">
+            <p className="text-muted text-[10px] tracking-widest uppercase font-semibold">Atualmente em</p>
+            <p className="text-text text-sm font-bold mt-0.5">Pratagy Beach Resort</p>
           </div>
         </div>
       </div>
 
       {/* Scroll cue */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted/50 select-none">
-        <div className="w-px h-10 bg-gradient-to-b from-transparent to-accent/40 animate-pulse" />
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 select-none">
+        <div className="w-px h-10 bg-gradient-to-b from-transparent to-accent/25 animate-pulse mx-auto" />
       </div>
     </section>
   );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// ARTWORK CARD (shared between carousel + grid)
+// ─────────────────────────────────────────────────────────────────────────────
+function ArtCard({ file, label, title, ratio, pad, onClick, extraClass = '' }) {
+  return (
+    <div
+      className={`card-lift rounded-xl overflow-hidden bg-white border border-border cursor-zoom-in ${extraClass}`}
+      onClick={onClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={e => e.key === 'Enter' && onClick()}
+      aria-label={`Ampliar: ${title} ${label}`}
+    >
+      {/* Image area — object-contain so nada é cortado */}
+      <div
+        className="relative bg-surface2 overflow-hidden"
+        style={{ aspectRatio: ratio }}
+      >
+        <img
+          src={`./Artes/${file}`}
+          alt={`${title} ${label}`}
+          className={`w-full h-full object-contain ${pad} group-hover:scale-[1.03]`}
+          loading="lazy"
+        />
+        {/* Zoom hint */}
+        <div className="absolute top-2 right-2 w-7 h-7 rounded-full bg-white/80 border border-border flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-sm">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#6D28D9" strokeWidth="2.5">
+            <path d="M15 3h6v6M14 10l6.1-6.1M9 21H3v-6M10 14l-6.1 6.1"/>
+          </svg>
+        </div>
+      </div>
+      {/* Footer */}
+      <div className="px-3 py-2.5 flex items-center justify-between border-t border-border">
+        <p className="text-text text-xs font-semibold truncate">{title}</p>
+        <span className="text-muted text-xs font-mono ml-2 flex-shrink-0">{label}</span>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // CAROUSEL SECTION
 // ─────────────────────────────────────────────────────────────────────────────
-function CarouselSection({ project }) {
+function CarouselSection({ project, onOpen }) {
   const trackRef = useRef(null);
 
   const scroll = useCallback((dir) => {
-    const track = trackRef.current;
-    if (!track) return;
-    const item = track.querySelector('.carousel-item');
+    const t = trackRef.current;
+    if (!t) return;
+    const item = t.querySelector('.carousel-item');
     if (!item) return;
-    const gap = 16;
-    track.scrollBy({ left: dir * (item.offsetWidth + gap), behavior: 'smooth' });
+    t.scrollBy({ left: dir * (item.offsetWidth + 16), behavior: 'smooth' });
   }, []);
+
+  const images = project.items.map(it => ({
+    src: `./Artes/${it.file}`,
+    alt: `${project.title} ${it.label}`,
+  }));
 
   return (
     <div className="mb-24">
-      <div className="flex items-end justify-between mb-6 px-1">
+      <div className="flex items-end justify-between mb-6">
         <div>
           <div className="s-line" />
-          <h3 className="font-display text-2xl md:text-3xl font-bold text-text">{project.title}</h3>
+          <h3 className="text-2xl md:text-3xl font-bold text-text">{project.title}</h3>
           <p className="text-muted text-sm mt-1">{project.description}</p>
         </div>
         <div className="flex gap-2 shrink-0 ml-4">
           {[-1, 1].map(dir => (
-            <button key={dir} onClick={() => scroll(dir)}
-                    className="w-10 h-10 border border-border hover:border-accent text-muted hover:text-accent flex items-center justify-center transition-all duration-300 rounded-sm">
+            <button
+              key={dir}
+              onClick={() => scroll(dir)}
+              className="w-10 h-10 border border-border hover:border-accent text-muted hover:text-accent flex items-center justify-center transition-all duration-300 rounded-lg bg-white shadow-sm"
+            >
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 {dir === -1 ? <path d="M15 18l-6-6 6-6"/> : <path d="M9 18l6-6-6-6"/>}
               </svg>
@@ -419,24 +601,19 @@ function CarouselSection({ project }) {
 
       <div className="carousel-track" ref={trackRef}>
         {project.items.map((item, i) => (
-          <div key={item.file} className="carousel-item card-lift rounded-sm overflow-hidden bg-surface2 border border-border">
-            <div className={`relative ${project.aspect} overflow-hidden`}>
-              <img
-                src={`./Artes/${item.file}`}
-                alt={`${project.title} ${item.label}`}
-                className="w-full h-full object-cover hover:scale-105"
-                loading="lazy"
-              />
-            </div>
-            <div className="p-3 flex items-center justify-between">
-              <p className="text-text text-xs font-medium">{project.title}</p>
-              <span className="text-muted text-xs font-mono">{item.label}</span>
-            </div>
+          <div key={item.file} className="carousel-item group">
+            <ArtCard
+              file={item.file}
+              label={item.label}
+              title={project.title}
+              ratio={project.ratio}
+              pad={project.pad}
+              onClick={() => onOpen(images, i)}
+            />
           </div>
         ))}
       </div>
 
-      {/* Swipe hint on mobile */}
       <p className="md:hidden text-muted text-xs text-center mt-4 tracking-wide">← deslize para ver mais →</p>
     </div>
   );
@@ -445,17 +622,24 @@ function CarouselSection({ project }) {
 // ─────────────────────────────────────────────────────────────────────────────
 // GRID SECTION
 // ─────────────────────────────────────────────────────────────────────────────
-function GridSection({ project }) {
-  const cols = project.items.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-2 lg:grid-cols-3';
+function GridSection({ project, onOpen }) {
+  const cols = project.items.length === 2
+    ? 'sm:grid-cols-2'
+    : 'sm:grid-cols-2 lg:grid-cols-3';
+
+  const images = project.items.map(it => ({
+    src: `./Artes/${it.file}`,
+    alt: `${project.title} ${it.label}`,
+  }));
 
   return (
     <div className="mb-24">
-      <div className="mb-6 px-1">
+      <div className="mb-6">
         <div className="s-line" />
         <div className="flex items-center gap-3 flex-wrap">
-          <h3 className="font-display text-2xl md:text-3xl font-bold text-text">{project.title}</h3>
+          <h3 className="text-2xl md:text-3xl font-bold text-text">{project.title}</h3>
           {project.badge && (
-            <span className="text-[10px] font-sans font-semibold tracking-widest text-accent border border-accent/40 px-2 py-0.5 rounded-full uppercase">
+            <span className="text-[10px] font-bold tracking-widest text-accent border border-accent/30 bg-accent/5 px-2.5 py-0.5 rounded-full uppercase">
               {project.badge}
             </span>
           )}
@@ -463,26 +647,17 @@ function GridSection({ project }) {
         <p className="text-muted text-sm mt-1">{project.description}</p>
       </div>
 
-      <div className={`grid grid-cols-1 ${cols} gap-4`}>
+      <div className={`grid grid-cols-1 ${cols} gap-5`}>
         {project.items.map((item, i) => (
-          <div key={item.file} className="card-lift rounded-sm overflow-hidden bg-surface2 border border-border group">
-            <div className={`relative ${project.aspect} overflow-hidden`}>
-              <img
-                src={`./Artes/${item.file}`}
-                alt={`${project.title} ${item.label}`}
-                className="w-full h-full object-cover group-hover:scale-105"
-                loading="lazy"
-              />
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-bg/80 via-transparent to-transparent
-                              opacity-0 group-hover:opacity-100 transition-opacity duration-500
-                              flex items-end p-5">
-                <div>
-                  <p className="text-text text-sm font-semibold">{project.title}</p>
-                  <p className="text-muted text-xs font-mono">{item.label}</p>
-                </div>
-              </div>
-            </div>
+          <div key={item.file} className="group">
+            <ArtCard
+              file={item.file}
+              label={item.label}
+              title={project.title}
+              ratio={project.ratio}
+              pad={project.pad}
+              onClick={() => onOpen(images, i)}
+            />
           </div>
         ))}
       </div>
@@ -494,27 +669,36 @@ function GridSection({ project }) {
 // PROJECTS
 // ─────────────────────────────────────────────────────────────────────────────
 function Projects() {
+  const [lb, setLb] = useState(null); // { images, startIndex }
+
+  const open  = useCallback((images, i) => setLb({ images, startIndex: i }), []);
+  const close = useCallback(() => setLb(null), []);
+
   return (
-    <section id="projects" className="py-24 max-w-6xl mx-auto px-6">
-      {/* Section header */}
-      <div className="mb-16">
-        <p className="text-muted text-xs tracking-[0.2em] uppercase mb-4 flex items-center gap-3">
-          <span className="w-8 h-px bg-accent inline-block" />
-          Trabalhos Selecionados
-        </p>
-        <h2 className="font-display font-black text-text mb-4" style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)' }}>
-          Projetos<br /><span className="gold-text">Recentes</span>
-        </h2>
-        <p className="text-muted text-sm leading-relaxed max-w-md">
-          Criações desenvolvidas para o Pratagy Beach Resort — materiais digitais para hospitalidade de alto padrão.
-        </p>
+    <section id="projects" className="py-28 bg-surface border-y border-border">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Header */}
+        <div className="mb-16">
+          <p className="text-muted text-xs tracking-[0.2em] uppercase mb-4 flex items-center gap-3 font-semibold">
+            <span className="w-8 h-px bg-gold inline-block" />
+            Trabalhos Selecionados
+          </p>
+          <h2 className="font-extrabold text-text mb-4" style={{ fontSize: 'clamp(2.2rem, 6vw, 4rem)' }}>
+            Projetos <span className="purple-text">Recentes</span>
+          </h2>
+          <p className="text-muted text-sm leading-relaxed max-w-lg">
+            Soluções de produto, branding e comunicação digital desenvolvidas com foco em conversão, consistência visual e impacto real.
+          </p>
+        </div>
+
+        {PROJECTS.map(p =>
+          p.type === 'carousel'
+            ? <CarouselSection key={p.id} project={p} onOpen={open} />
+            : <GridSection     key={p.id} project={p} onOpen={open} />
+        )}
       </div>
 
-      {PROJECTS.map(p =>
-        p.type === 'carousel'
-          ? <CarouselSection key={p.id} project={p} />
-          : <GridSection     key={p.id} project={p} />
-      )}
+      {lb && <Lightbox images={lb.images} startIndex={lb.startIndex} onClose={close} />}
     </section>
   );
 }
@@ -530,70 +714,69 @@ function About() {
   ];
 
   return (
-    <section id="about" className="py-24 bg-surface border-y border-border">
+    <section id="about" className="py-28 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-start">
-
           {/* Left */}
           <div>
-            <p className="text-muted text-xs tracking-[0.2em] uppercase mb-4 flex items-center gap-3">
-              <span className="w-8 h-px bg-accent inline-block" />
+            <p className="text-muted text-xs tracking-[0.2em] uppercase mb-4 flex items-center gap-3 font-semibold">
+              <span className="w-8 h-px bg-gold inline-block" />
               Sobre mim
             </p>
-            <h2 className="font-display font-black text-text leading-tight mb-10"
-                style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
-              Design que<br /><span className="gold-text">converte.</span>
+            <h2 className="font-extrabold text-text leading-tight mb-10"
+                style={{ fontSize: 'clamp(2rem, 5vw, 3.2rem)' }}>
+              Design que<br /><span className="purple-text">converte.</span>
             </h2>
 
-            {/* Skills chips */}
+            {/* Skills */}
             <div className="flex flex-wrap gap-2">
               {skills.map(s => (
                 <span key={s}
-                      className="text-xs text-muted border border-border px-3 py-1.5 rounded-full hover:border-accent hover:text-accent transition-all duration-300 cursor-default">
+                      className="text-xs text-muted border border-border px-3 py-1.5 rounded-full font-medium hover:border-accent hover:text-accent hover:bg-accent/5 transition-all duration-300 cursor-default">
                   {s}
                 </span>
               ))}
             </div>
 
-            {/* Experience timeline */}
-            <div className="mt-12 space-y-6 border-l border-border pl-6">
+            {/* Timeline */}
+            <div className="mt-12 space-y-7 border-l-2 border-border pl-6">
               <div className="relative">
-                <div className="absolute -left-[25px] top-1 w-2 h-2 rounded-full bg-accent" />
-                <p className="text-text text-sm font-semibold">Pratagy Beach Resort</p>
-                <p className="text-muted text-xs mt-0.5">Designer Visual & UI/UX · Marketing Digital</p>
-                <p className="text-accent/70 text-xs mt-0.5">2022 → presente</p>
+                <div className="absolute -left-[29px] top-1 w-3.5 h-3.5 rounded-full bg-gold border-[3px] border-white shadow-sm" />
+                <p className="text-text text-sm font-bold">Pratagy Beach Resort</p>
+                <p className="text-muted text-xs mt-0.5 font-medium">Product & Visual Designer</p>
+                <p className="text-accent text-xs mt-1 font-semibold">Mai 2025 → presente</p>
               </div>
               <div className="relative">
-                <div className="absolute -left-[25px] top-1 w-2 h-2 rounded-full bg-border" />
-                <p className="text-text text-sm font-semibold">Formação · Publicidade & Propaganda</p>
-                <p className="text-muted text-xs mt-0.5">Foco em Design de Produto e Estratégia</p>
+                <div className="absolute -left-[29px] top-1 w-3.5 h-3.5 rounded-full bg-border border-[3px] border-white" />
+                <p className="text-text text-sm font-bold">SEDUC-AL</p>
+                <p className="text-muted text-xs mt-0.5 font-medium">Designer Visual · Sistemas & Acessibilidade (WCAG)</p>
+                <p className="text-muted text-xs mt-1">Ago 2023 → Mai 2025</p>
+              </div>
+              <div className="relative">
+                <div className="absolute -left-[29px] top-1 w-3.5 h-3.5 rounded-full bg-border/60 border-[3px] border-white" />
+                <p className="text-text text-sm font-bold">Publicidade & Propaganda — UNIMA/AFYA</p>
+                <p className="text-muted text-xs mt-0.5 font-medium">Bacharelado · Concluído 2025</p>
               </div>
             </div>
           </div>
 
           {/* Right: bio */}
-          <div className="space-y-6 text-muted text-sm leading-[1.9]">
+          <div className="space-y-5 text-muted text-sm leading-[1.9] font-medium">
             <p>
-              Designer Visual e UI/UX com formação em <span className="text-text font-medium">Publicidade e Propaganda</span> e foco em Produto. Atuo na intersecção entre design de interface, Product Management e estratégia de negócio — guiando projetos desde a imersão com o usuário e arquitetura da informação até a prototipagem de alta fidelidade.
+              <span className="text-text font-bold">Product Designer e UI/UX</span> com formação em Publicidade e Propaganda. Atuo na intersecção entre design de interface, Product Management e estratégia de negócio — da descoberta do usuário à entrega de sistemas visuais de alta fidelidade.
             </p>
             <p>
-              Atualmente no setor de hospitalidade para o <span className="text-text font-medium">Pratagy Beach Resort</span>, transformando necessidades complexas em soluções visuais de alta conversão. Desenvolvimento e manutenção da consistência visual da marca em múltiplos pontos de contato digitais. Colaboração com stakeholders e times de vendas para traduzir objetivos de negócio em Design.
+              Especialista em <span className="text-text font-bold">resolver problemas complexos de produto</span> e construir sistemas de design escaláveis. Traduzo objetivos de negócio em experiências digitais de alta conversão, colaborando com times multidisciplinares para entregar resultados mensuráveis.
             </p>
             <p>
-              <span className="text-text font-medium">Inglês fluente</span> · domínio avançado de Adobe e Figma · especialista em <span className="text-text font-medium">Design-to-Code via IA Generativa (Claude Code)</span> · mais de 3 anos de experiência.
+              <span className="text-text font-bold">Inglês fluente</span> · Figma avançado · Adobe Suite · <span className="text-text font-bold">Design-to-Code via IA Generativa</span> · +3 anos de experiência.
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="flex flex-wrap gap-3 pt-4">
               <a href="https://www.linkedin.com/in/gabenascimento/" target="_blank" rel="noopener noreferrer"
-                 className="inline-flex items-center gap-2 text-accent text-sm font-medium hover:gap-4 transition-all duration-300">
-                LinkedIn
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
+                 className="btn-purple">LinkedIn →</a>
               <a href="https://www.instagram.com/nascimento.gabe/" target="_blank" rel="noopener noreferrer"
-                 className="inline-flex items-center gap-2 text-muted text-sm font-medium hover:text-accent hover:gap-4 transition-all duration-300">
-                Instagram
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
+                 className="btn-ghost">Instagram →</a>
             </div>
           </div>
         </div>
@@ -603,21 +786,26 @@ function About() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// CTA BANNER
+// CTA
 // ─────────────────────────────────────────────────────────────────────────────
 function CTA() {
   return (
-    <section className="py-24 max-w-6xl mx-auto px-6 text-center">
-      <p className="text-muted text-xs tracking-[0.2em] uppercase mb-4">Vamos construir algo juntos</p>
-      <h2 className="font-display font-black text-text mb-6" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
-        Tem um projeto em mente?
-      </h2>
-      <p className="text-muted text-sm max-w-md mx-auto mb-10 leading-relaxed">
-        Estou aberto a novas oportunidades, freelas e colaborações. Vamos conversar sobre como posso ajudar.
-      </p>
-      <a href="mailto:thegabecrate@gmail.com" className="btn-gold inline-block text-base px-10 py-4">
-        thegabecrate@gmail.com
-      </a>
+    <section className="py-28 bg-surface border-t border-border">
+      <div className="max-w-2xl mx-auto px-6 text-center">
+        <div className="pill w-fit mx-auto mb-6">
+          <span className="w-2 h-2 rounded-full bg-accent animate-pulse flex-shrink-0" />
+          Disponível para novos projetos
+        </div>
+        <h2 className="font-extrabold text-text mb-4" style={{ fontSize: 'clamp(1.8rem, 5vw, 3rem)' }}>
+          Tem um projeto<br /><span className="purple-text">em mente?</span>
+        </h2>
+        <p className="text-muted text-sm max-w-md mx-auto mb-10 leading-relaxed font-medium">
+          Aberto a projetos de produto, freelas e novas oportunidades. Vamos resolver um problema juntos.
+        </p>
+        <a href="mailto:thegabecrate@gmail.com" className="btn-purple text-base px-10 py-4 text-base rounded-xl">
+          thegabecrate@gmail.com
+        </a>
+      </div>
     </section>
   );
 }
@@ -633,25 +821,23 @@ function Footer() {
   ];
 
   return (
-    <footer id="footer" className="border-t border-border bg-surface">
+    <footer id="footer" className="border-t border-border bg-white">
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-3 gap-10 mb-12">
-          {/* Brand */}
           <div>
-            <p className="font-display text-4xl font-black text-text mb-3">GN<span className="gold-text">.</span></p>
-            <p className="text-muted text-sm leading-relaxed max-w-xs">
-              Designer Visual & UI/UX com foco em produto e hospitalidade de alto padrão.
+            <p className="text-3xl font-extrabold text-text mb-3">GN<span className="purple-text">.</span></p>
+            <p className="text-muted text-sm leading-relaxed max-w-xs font-medium">
+              Product Designer focado em criar experiências digitais e soluções de produto de alta performance.
             </p>
           </div>
 
-          {/* Social links */}
           <div>
-            <p className="text-text text-[10px] tracking-[0.2em] uppercase mb-5 font-medium">Redes</p>
+            <p className="text-text text-[10px] tracking-[0.2em] uppercase mb-5 font-bold">Redes</p>
             <ul className="space-y-3">
               {socials.map(s => (
                 <li key={s.label}>
                   <a href={s.href} target="_blank" rel="noopener noreferrer"
-                     className="nav-link text-muted text-sm hover:text-accent transition-colors duration-300">
+                     className="nav-link text-muted text-sm hover:text-accent transition-colors duration-300 font-semibold">
                     {s.label}
                   </a>
                 </li>
@@ -659,29 +845,27 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
-            <p className="text-text text-[10px] tracking-[0.2em] uppercase mb-5 font-medium">Contato</p>
+            <p className="text-text text-[10px] tracking-[0.2em] uppercase mb-5 font-bold">Contato</p>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="tel:+5582996741247" className="text-muted hover:text-accent transition-colors duration-300">
+                <a href="tel:+5582996741247" className="text-muted hover:text-accent transition-colors font-semibold">
                   (82) 99674-1247
                 </a>
               </li>
               <li>
-                <a href="mailto:thegabecrate@gmail.com" className="text-muted hover:text-accent transition-colors duration-300">
+                <a href="mailto:thegabecrate@gmail.com" className="text-muted hover:text-accent transition-colors font-semibold">
                   thegabecrate@gmail.com
                 </a>
               </li>
             </ul>
-            <a href="mailto:thegabecrate@gmail.com"
-               className="btn-gold inline-block mt-8 text-sm">
+            <a href="mailto:thegabecrate@gmail.com" className="btn-purple inline-block mt-8 text-sm">
               Iniciar conversa →
             </a>
           </div>
         </div>
 
-        <div className="border-t border-border pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted">
+        <div className="border-t border-border pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted font-medium">
           <p>© 2025 Gabriel Nascimento. Todos os direitos reservados.</p>
           <p>Feito com React · Tailwind CSS · Claude Code</p>
         </div>
